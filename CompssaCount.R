@@ -13,6 +13,11 @@ ElectVotes <- read_excel(paste0(address, "ElectionResponseTest2.xlsx"),
   select(-timestamp) %>%
   rename(electpassword = passkey)
 
+DuplicateVotes <- VoterReg %>%
+  group_by(matric_no) %>%
+  count() %>%
+  filter(n >= 2)
+
 ## Adds a valid column to confirm match of election day password with registration password
 ## Add features to account for case and spacings and number passwords that add 0 to the front
 VerifiedVotes <- ElectVotes %>%

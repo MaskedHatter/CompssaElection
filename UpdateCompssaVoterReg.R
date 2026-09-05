@@ -13,6 +13,9 @@ DuplicateReg <- PreviousVoterReg %>%
   count() %>%
   filter(n >= 2)
 
+DuplicateVotes <- PreviousVoterReg %>%
+  filter(matric_no %in% DuplicateReg$matric_no)
+
 PreviousVoterReg <- PreviousVoterReg %>%
   arrange(desc(timestamp)) %>%
   distinct(matric_no, .keep_all = TRUE) %>%
