@@ -7,7 +7,7 @@ VoterReg <- read_excel(paste0(address, "UpdatedList/NewVoterRegister.xlsx"),
                        col_types = c("Matric No" = "text" )) %>%
   clean_names() 
 
-ElectVotes <- read_excel(paste0(address, "ElectionResponseTest.xlsx"),
+ElectVotes <- read_excel(paste0(address, "ElectionResponseTest2.xlsx"),
                          col_types = c("Matric No" = "text" )) %>%
   clean_names() %>%
   select(-timestamp) %>%
